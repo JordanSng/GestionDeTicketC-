@@ -24,5 +24,10 @@ namespace GestionDeTickets
         {
             InitializeComponent();
         }
+
+        private void Login_OnClick(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

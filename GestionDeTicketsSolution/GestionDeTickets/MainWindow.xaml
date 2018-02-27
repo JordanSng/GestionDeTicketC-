@@ -5,8 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GestionDeTickets"
         mc:Ignorable="d"
-        Title="MainWindow" Height="500" Width="300">
+        Title="PPE4" Height="500" Width="350" ResizeMode="NoResize">
     <Grid>
-
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        
+        <TextBlock Height="50" TextAlignment="Center" FontSize="20" TextWrapping="Wrap" Text="Gestion De Tickets" Grid.Column="1" Grid.ColumnSpan="2"></TextBlock>
+        <Label Content="Login :" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" FontSize="18" />
+        <TextBox x:Name="Username" Height="40" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" FontSize="18" VerticalContentAlignment="Center"></TextBox>
+        <Label Content="Mot de passe :" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" FontSize="18" />
+        <PasswordBox x:Name="Password" Height="40" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2" FontSize="18" VerticalContentAlignment="Center"></PasswordBox>
+        <Button x:Name="Login" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Height="25" Content="Se connecter" VerticalAlignment="Top" Click="Login_OnClick"></Button>
     </Grid>
 </Window>
