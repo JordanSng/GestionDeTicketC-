@@ -69,6 +69,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="TicketScreenTech.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="TicketScreenUser.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -81,6 +85,9 @@
     <Compile Include="Class\Utilisateur.cs" />
     <Compile Include="LoginScreen.xaml.cs">
       <DependentUpon>LoginScreen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TicketScreenTech.xaml.cs">
+      <DependentUpon>TicketScreenTech.xaml</DependentUpon>
     </Compile>
     <Compile Include="TicketScreenUser.xaml.cs">
       <DependentUpon>TicketScreenUser.xaml</DependentUpon>

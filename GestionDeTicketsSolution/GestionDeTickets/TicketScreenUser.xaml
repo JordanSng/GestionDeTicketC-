@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="PPE4" Height="500" Width="350" ResizeMode="NoResize">
+        Title="PPE4" Height="600" Width="1000" ResizeMode="NoResize">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -19,6 +19,6 @@
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         
-        <TextBlock Height="50" TextAlignment="Center" FontSize="20" TextWrapping="Wrap" Text="Vous etes connecté" Grid.Column="1" Grid.ColumnSpan="2"></TextBlock>
+        <TextBlock Height="50" TextAlignment="Center" FontSize="20" TextWrapping="Wrap" Text="Vous etes un utilisateur" Grid.Column="1" Grid.ColumnSpan="2"></TextBlock>
     </Grid>
 </Window>

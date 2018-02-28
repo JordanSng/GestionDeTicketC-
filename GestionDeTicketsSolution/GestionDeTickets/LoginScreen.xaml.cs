@@ -23,24 +23,28 @@ namespace GestionDeTickets
             {
                 if (sqlConnection.State == ConnectionState.Closed)
                     sqlConnection.Open();
-                string query = "SELECT COUNT(1) FROM Personnes WHERE Login=@Username AND Password=@Password";
-                SqlCommand sqlCommand = new SqlCommand(query, sqlConnection)
+                SqlDataAdapter sda = new SqlDataAdapter(
+                    "SELECT Discriminator FROM Personnes WHERE Login='"+ Username.Text +"' and Password='"+ Password.Password + "' ", sqlConnection);
+                DataSet ds=new DataSet();
+                sda.Fill(ds,"Login");
+                for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
                 {
-                    CommandType = CommandType.Text
-                };
-                sqlCommand.Parameters.AddWithValue("@Username", Username.Text);
-                sqlCommand.Parameters.AddWithValue("@Password", Password.Password);
-                int count = Convert.ToInt32(sqlCommand.ExecuteScalar());
-                if (count == 1)
-                {
-                    TicketScreenUser ticketScreenUser = new TicketScreenUser();
-                    ticketScreenUser.Show();
-                    Close();
+                    String discriminator = ds.Tables[0].Rows[0]["Discriminator"].ToString();// Regarde si la personne est un utilisateur ou un technicien
+                    if(discriminator=="Technicien")
+                    {
+                        TicketScreenTech ticketScreenTech = new TicketScreenTech();
+                        ticketScreenTech.Show();
+                        Close();
+                    }
+                    else
+                    {
+                        TicketScreenUser ticketScreenUser = new TicketScreenUser();
+                        ticketScreenUser.Show();
+                        Close();
+ 
+                    }
                 }
-                else
-                {
-                    MessageBox.Show("Login ou mot de passe incorrect.");
-                }
+                sqlConnection.Close();
             }
             catch (Exception exception)
             {
@@ -50,6 +54,8 @@ namespace GestionDeTickets
             {
                 sqlConnection.Close();
             }
-        }
+            
+        }  
+    
     }
 }
