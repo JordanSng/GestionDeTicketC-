@@ -6,7 +6,7 @@ using System.Windows;
 namespace GestionDeTickets
 {
     /// <summary>
-    /// Logique d'interaction pour MainWindow.xaml
+    /// Logique d'interaction pour LoginScreen.xaml
     /// </summary>
     public partial class LoginScreen
     {
@@ -23,21 +23,22 @@ namespace GestionDeTickets
             {
                 if (sqlConnection.State == ConnectionState.Closed)
                     sqlConnection.Open();
-                string query = "SELECT Discriminator FROM Personnes WHERE Login=@Username and Password=@Password";
+                string query = "SELECT * FROM Personnes WHERE Login=@Username and Password=@Password";// Les @ protège d'une injection SQL
                 SqlDataAdapter sda = new SqlDataAdapter(query, sqlConnection);
                 sda.SelectCommand.Parameters.AddWithValue("@Username", Username.Text); //Attribue la valeur du champ Username.text à @Username dans la requête
                 sda.SelectCommand.Parameters.AddWithValue("@Password", Password.Password); //Attribue la valeur du champ Password.Password à @Password dans la requête
                 DataSet ds=new DataSet();
-                sda.Fill(ds,"Login");
-                for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                sda.Fill(ds,"Personnes");
+                if(ds.Tables[0].Rows.Count == 1) // La requete SQL "query" retourne l'unique ligne où le login et mdp correspondent
                 {
-                    String discriminator = ds.Tables[0].Rows[0]["Discriminator"].ToString();// Regarde si la personne est un utilisateur ou un technicien
-
+                    String discriminator = ds.Tables[0].Rows[0]["Discriminator"].ToString();// Regarde dans le champ Discriminator de la table Personnes si la personne est un utilisateur ou un technicien
+                    string username = ds.Tables[0].Rows[0]["Login"].ToString();// Pareil que pour Discriminator mais avec le champ Login
                     switch (discriminator)
                     {
                         case "Technicien":
                         {
                             TicketScreenTech ticketScreenTech = new TicketScreenTech();
+                            ticketScreenTech.Bienvenue.Text += username;
                             ticketScreenTech.Show();
                             Close();
                             break;
@@ -50,20 +51,17 @@ namespace GestionDeTickets
                             Close();
                             break;
                         }
-                        default:
-                            MessageBox.Show("Login ou Mot de passe incorrect");
-                            break;
                     }
+                }
+                else
+                {
+                    MessageBox.Show("Login ou Mot de passe incorrect");
                 }
                 sqlConnection.Close();
             }
             catch (Exception exception)
             {
                 MessageBox.Show(exception.Message);
-            }
-            finally
-            {
-                sqlConnection.Close();
             }
             
         }  

@@ -4,23 +4,13 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="TicketScreenTech" Height="600" Width="1000">
+        Height="600" Width="1000"
+        xmlns:hamburgerMenu="clr-namespace:HamburgerMenu;assembly=HamburgerMenu"
+        WindowStartupLocation="CenterScreen">
     <Grid>
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-            </Grid.RowDefinitions>
-        
-            <TextBlock Height="50" TextAlignment="Center" FontSize="20" TextWrapping="Wrap" Text="Vous etes un technicien" Grid.Column="1" Grid.ColumnSpan="2"></TextBlock>
-        </Grid>
+        <hamburgerMenu:HamburgerMenu Background="#37474F" MenuIconColor="White" SelectionIndicatorColor="White" MenuItemForeground="White" HorizontalAlignment="Left">
+            <hamburgerMenu:HamburgerMenuItem x:Name="Bienvenue" Icon="Assets/person.png" Text="Bienvenue "/>         
+        </hamburgerMenu:HamburgerMenu>
     </Grid>
 </Window>
+
