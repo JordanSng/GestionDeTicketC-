@@ -23,25 +23,36 @@ namespace GestionDeTickets
             {
                 if (sqlConnection.State == ConnectionState.Closed)
                     sqlConnection.Open();
-                SqlDataAdapter sda = new SqlDataAdapter(
-                    "SELECT Discriminator FROM Personnes WHERE Login='"+ Username.Text +"' and Password='"+ Password.Password + "' ", sqlConnection);
+                string query = "SELECT Discriminator FROM Personnes WHERE Login=@Username and Password=@Password";
+                SqlDataAdapter sda = new SqlDataAdapter(query, sqlConnection);
+                sda.SelectCommand.Parameters.AddWithValue("@Username", Username.Text); //Attribue la valeur du champ Username.text à @Username dans la requête
+                sda.SelectCommand.Parameters.AddWithValue("@Password", Password.Password); //Attribue la valeur du champ Password.Password à @Password dans la requête
                 DataSet ds=new DataSet();
                 sda.Fill(ds,"Login");
                 for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
                 {
                     String discriminator = ds.Tables[0].Rows[0]["Discriminator"].ToString();// Regarde si la personne est un utilisateur ou un technicien
-                    if(discriminator=="Technicien")
+
+                    switch (discriminator)
                     {
-                        TicketScreenTech ticketScreenTech = new TicketScreenTech();
-                        ticketScreenTech.Show();
-                        Close();
-                    }
-                    else
-                    {
-                        TicketScreenUser ticketScreenUser = new TicketScreenUser();
-                        ticketScreenUser.Show();
-                        Close();
- 
+                        case "Technicien":
+                        {
+                            TicketScreenTech ticketScreenTech = new TicketScreenTech();
+                            ticketScreenTech.Show();
+                            Close();
+                            break;
+                        }
+
+                        case "Utilisateur":
+                        {
+                            TicketScreenUser ticketScreenUser = new TicketScreenUser();
+                            ticketScreenUser.Show();
+                            Close();
+                            break;
+                        }
+                        default:
+                            MessageBox.Show("Login ou Mot de passe incorrect");
+                            break;
                     }
                 }
                 sqlConnection.Close();
