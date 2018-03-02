@@ -2,6 +2,7 @@
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows;
+using System.Windows.Input;
 
 namespace GestionDeTickets
 {
@@ -64,7 +65,21 @@ namespace GestionDeTickets
                 MessageBox.Show(exception.Message);
             }
             
-        }  
-    
+        }
+
+        private void Border_OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
+        }
+
+        private void Close_OnClick(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private void Minimize_OnClick(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
     }
 }
