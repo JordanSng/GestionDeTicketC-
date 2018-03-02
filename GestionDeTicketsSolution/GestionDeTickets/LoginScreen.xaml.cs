@@ -48,6 +48,7 @@ namespace GestionDeTickets
                         case "Utilisateur":
                         {
                             TicketScreenUser ticketScreenUser = new TicketScreenUser();
+                            ticketScreenUser.Bienvenue.Text += username;
                             ticketScreenUser.Show();
                             Close();
                             break;
@@ -79,7 +80,7 @@ namespace GestionDeTickets
 
         private void Minimize_OnClick(object sender, RoutedEventArgs e)
         {
-            this.WindowState = WindowState.Minimized; //Minimise la fenetre d'application
+            WindowState = WindowState.Minimized; //Minimise la fenetre d'application
         }
     }
 }

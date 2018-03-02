@@ -20,26 +20,43 @@
         BorderBrush="#37474F"
         BorderThickness="1">
     <Grid>
-        <Border Grid.Row="0" Background="Transparent" MouseLeftButtonDown="Border_OnMouseLeftButtonDown">
-            <Grid>
-                <materialDesign:ColorZone Mode="PrimaryDark" Background="#37474F">
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                        <Button x:Name="Minimize" Width="30" Height="30" Padding="0" Click="Minimize_OnClick" Background="#37474F" BorderBrush="Transparent">
-                            <materialDesign:PackIcon Kind="WindowMinimize"></materialDesign:PackIcon>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <materialDesign:ColorZone Grid.Column="0" Mode="PrimaryDark" Background="#37474F">
+                <Image Source="Assets/appicon.png" HorizontalAlignment="Center" Margin="5"/>
+            </materialDesign:ColorZone>
+
+            <Border Grid.Column="1" Background="Transparent" MouseLeftButtonDown="Border_OnMouseLeftButtonDown">
+                <materialDesign:ColorZone Mode="PrimaryDark" Background="#37474F" Margin="0,0,0.4,0">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Height="40">
+                        <Button x:Name="Minimize" Width="30" Height="40" Padding="0" Click="Minimize_OnClick" Background="#37474F" BorderBrush="Transparent">
+                            <materialDesign:PackIcon Kind="WindowMinimize"/>
                         </Button>
-                        <Button x:Name="Maximize" Width="30" Height="30" Padding="0" Click="Maximize_OnClick" Background="#37474F" BorderBrush="Transparent">
-                            <materialDesign:PackIcon Kind="WindowMaximize"></materialDesign:PackIcon>
+                        <Button x:Name="Maximize" Width="30" Height="40" Padding="0" Click="Maximize_OnClick" Background="#37474F" BorderBrush="Transparent">
+                            <materialDesign:PackIcon Kind="WindowMaximize"/>
                         </Button>
-                        <Button x:Name="Close" Width="30" Height="30" Padding="0" Click="Close_OnClick" Background="#37474F" BorderBrush="Transparent">
-                            <materialDesign:PackIcon Kind="WindowClose"></materialDesign:PackIcon>
+                        <Button x:Name="Close" Width="30" Height="40" Padding="0" Click="Close_OnClick" Background="#37474F" BorderBrush="Transparent">
+                            <materialDesign:PackIcon Kind="WindowClose"/>
                         </Button>
                     </StackPanel>
                 </materialDesign:ColorZone>
-            </Grid>
-        </Border>
+            </Border>
+        </Grid>
+        <Grid Grid.Row="1">
             <hamburgerMenu:HamburgerMenu Background="#37474F" MenuIconColor="White" SelectionIndicatorColor="White" MenuItemForeground="White" HorizontalAlignment="Left">
-            <hamburgerMenu:HamburgerMenuItem x:Name="Bienvenue" Icon="Assets/person.png" Text="Bienvenue "/>         
-        </hamburgerMenu:HamburgerMenu>
+                <hamburgerMenu:HamburgerMenuItem x:Name="Bienvenue" Icon="Assets/person.png" Text="Bienvenue " Height="50"/>
+                <hamburgerMenu:HamburgerMenuItem x:Name="Liste" Icon="Assets/list.png" Text="Liste des tickets" Height="50" Selected="Liste_OnSelected"/>
+            </hamburgerMenu:HamburgerMenu>
+        </Grid>
     </Grid>
 </Window>
 

@@ -4,21 +4,58 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="PPE4" Height="600" Width="1000" ResizeMode="NoResize">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-        </Grid.ColumnDefinitions>
+        Height="600" Width="1000"
+        xmlns:hamburgerMenu="clr-namespace:HamburgerMenu;assembly=HamburgerMenu"
+        WindowStartupLocation="CenterScreen"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        BorderBrush="#37474F"
+        BorderThickness="1">
+     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-        
-        <TextBlock Height="50" TextAlignment="Center" FontSize="20" TextWrapping="Wrap" Text="Vous etes un utilisateur" Grid.Column="1" Grid.ColumnSpan="2"></TextBlock>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <materialDesign:ColorZone Grid.Column="0" Mode="PrimaryDark" Background="#37474F">
+                <Image Source="Assets/appicon.png" HorizontalAlignment="Center" Margin="5"/>
+            </materialDesign:ColorZone>
+
+            <Border Grid.Column="1" Background="Transparent" MouseLeftButtonDown="Border_OnMouseLeftButtonDown">
+                <materialDesign:ColorZone Mode="PrimaryDark" Background="#37474F" Margin="0,0,0.4,0">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Height="40">
+                        <Button x:Name="Minimize" Width="30" Height="40" Padding="0" Click="Minimize_OnClick" Background="#37474F" BorderBrush="Transparent">
+                            <materialDesign:PackIcon Kind="WindowMinimize"></materialDesign:PackIcon>
+                        </Button>
+                        <Button x:Name="Maximize" Width="30" Height="40" Padding="0" Click="Maximize_OnClick" Background="#37474F" BorderBrush="Transparent">
+                            <materialDesign:PackIcon Kind="WindowMaximize"></materialDesign:PackIcon>
+                        </Button>
+                        <Button x:Name="Close" Width="30" Height="40" Padding="0" Click="Close_OnClick" Background="#37474F" BorderBrush="Transparent">
+                            <materialDesign:PackIcon Kind="WindowClose"></materialDesign:PackIcon>
+                        </Button>
+                    </StackPanel>
+                </materialDesign:ColorZone>
+            </Border>
+        </Grid>
+        <Grid Grid.Row="1">
+                <hamburgerMenu:HamburgerMenu Background="#37474F" MenuIconColor="White" SelectionIndicatorColor="White" MenuItemForeground="White" HorizontalAlignment="Left">
+                    <hamburgerMenu:HamburgerMenuItem x:Name="Bienvenue" Icon="Assets/person.png" Text="Bienvenue " Height="50"/>
+                    <hamburgerMenu:HamburgerMenuItem x:Name="Liste" Icon="Assets/list.png" Text="Liste des tickets" Height="50" Selected="Liste_OnSelected"/>
+                </hamburgerMenu:HamburgerMenu>
+        </Grid>
     </Grid>
 </Window>

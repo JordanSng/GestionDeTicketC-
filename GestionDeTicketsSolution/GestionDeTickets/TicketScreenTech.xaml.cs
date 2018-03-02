@@ -6,7 +6,7 @@ namespace GestionDeTickets
     /// <summary>
     /// Logique d'interaction pour TicketScreenTech.xaml
     /// </summary>
-    public partial class TicketScreenTech : Window
+    public partial class TicketScreenTech
     {
         public TicketScreenTech()
         {
@@ -38,6 +38,11 @@ namespace GestionDeTickets
         private void Border_OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             DragMove();
+        }
+
+        private void Liste_OnSelected(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("test");
         }
     }
 }
