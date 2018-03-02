@@ -6,9 +6,38 @@
         mc:Ignorable="d"
         Height="600" Width="1000"
         xmlns:hamburgerMenu="clr-namespace:HamburgerMenu;assembly=HamburgerMenu"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        BorderBrush="#37474F"
+        BorderThickness="1">
     <Grid>
-        <hamburgerMenu:HamburgerMenu Background="#37474F" MenuIconColor="White" SelectionIndicatorColor="White" MenuItemForeground="White" HorizontalAlignment="Left">
+        <Border Grid.Row="0" Background="Transparent" MouseLeftButtonDown="Border_OnMouseLeftButtonDown">
+            <Grid>
+                <materialDesign:ColorZone Mode="PrimaryDark" Background="#37474F">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                        <Button x:Name="Minimize" Width="30" Height="30" Padding="0" Click="Minimize_OnClick" Background="#37474F" BorderBrush="Transparent">
+                            <materialDesign:PackIcon Kind="WindowMinimize"></materialDesign:PackIcon>
+                        </Button>
+                        <Button x:Name="Maximize" Width="30" Height="30" Padding="0" Click="Maximize_OnClick" Background="#37474F" BorderBrush="Transparent">
+                            <materialDesign:PackIcon Kind="WindowMaximize"></materialDesign:PackIcon>
+                        </Button>
+                        <Button x:Name="Close" Width="30" Height="30" Padding="0" Click="Close_OnClick" Background="#37474F" BorderBrush="Transparent">
+                            <materialDesign:PackIcon Kind="WindowClose"></materialDesign:PackIcon>
+                        </Button>
+                    </StackPanel>
+                </materialDesign:ColorZone>
+            </Grid>
+        </Border>
+            <hamburgerMenu:HamburgerMenu Background="#37474F" MenuIconColor="White" SelectionIndicatorColor="White" MenuItemForeground="White" HorizontalAlignment="Left">
             <hamburgerMenu:HamburgerMenuItem x:Name="Bienvenue" Icon="Assets/person.png" Text="Bienvenue "/>         
         </hamburgerMenu:HamburgerMenu>
     </Grid>

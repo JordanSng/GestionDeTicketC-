@@ -79,7 +79,7 @@ namespace GestionDeTickets
 
         private void Minimize_OnClick(object sender, RoutedEventArgs e)
         {
-            this.WindowState = WindowState.Minimized;
+            this.WindowState = WindowState.Minimized; //Minimise la fenetre d'application
         }
     }
 }
