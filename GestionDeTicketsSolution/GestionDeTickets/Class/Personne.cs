@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GestionDeTickets.Class
+﻿namespace GestionDeTickets.Class
 {
     public abstract class Personne
     {

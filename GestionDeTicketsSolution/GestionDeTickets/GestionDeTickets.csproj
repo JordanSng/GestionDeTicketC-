@@ -97,6 +97,10 @@
     <Compile Include="LoginScreen.xaml.cs">
       <DependentUpon>LoginScreen.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803020841360_CreateTicket1.cs" />
+    <Compile Include="Migrations\201803020841360_CreateTicket1.Designer.cs">
+      <DependentUpon>201803020841360_CreateTicket1.cs</DependentUpon>
+    </Compile>
     <Compile Include="TicketScreenTech.xaml.cs">
       <DependentUpon>TicketScreenTech.xaml</DependentUpon>
     </Compile>
@@ -133,6 +137,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201802280857563_CreateTicket.resx">
       <DependentUpon>201802280857563_CreateTicket.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803020841360_CreateTicket1.resx">
+      <DependentUpon>201803020841360_CreateTicket1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

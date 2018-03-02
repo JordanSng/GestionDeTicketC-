@@ -1,6 +1,5 @@
 namespace GestionDeTickets.Migrations
 {
-    using System;
     using System.Data.Entity.Migrations;
     
     public partial class CreateTicket : DbMigration
@@ -11,14 +10,15 @@ namespace GestionDeTickets.Migrations
                 "dbo.Tickets",
                 c => new
                     {
-                        ID = c.Int(nullable: false, identity: true),
+                        Id = c.Int(nullable: false, identity: true),
                         Categorie = c.String(),
                         Commentaire = c.String(),
                         Etat = c.String(),
                         DateCreation = c.DateTime(nullable: false),
                         DateFin = c.DateTime(nullable: false),
+                        PersonneId = c.Int(),
                     })
-                .PrimaryKey(t => t.ID);
+                .PrimaryKey(t => t.Id);
             
         }
         
