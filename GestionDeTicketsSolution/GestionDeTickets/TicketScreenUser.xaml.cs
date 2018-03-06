@@ -15,11 +15,12 @@ namespace GestionDeTickets
 
         private void Minimize_OnClick(object sender, RoutedEventArgs e)
         {
-            WindowState = WindowState.Minimized;
+            WindowState = WindowState.Minimized; // Minimise la fenetre
         }
 
         private void Maximize_OnClick(object sender, RoutedEventArgs e)
         {
+            //Agrandit ou rétabli la fenetre
             if (WindowState == WindowState.Normal)
             {
                 WindowState = WindowState.Maximized;
@@ -32,12 +33,12 @@ namespace GestionDeTickets
 
         private void Close_OnClick(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            Application.Current.Shutdown(); //ferme l'application
         }
 
         private void Border_OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            DragMove();
+            DragMove(); //Permet de déplacer la fenetre
         }
 
         private void Liste_OnSelected(object sender, RoutedEventArgs e)
