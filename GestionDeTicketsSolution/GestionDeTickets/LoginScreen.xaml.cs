@@ -19,7 +19,7 @@ namespace GestionDeTickets
         private void Login_OnClick(object sender, RoutedEventArgs e)
         {
             SqlConnection sqlConnection = new SqlConnection(
-                @"Data Source=(localdb)\MSSQLLocalDB; Initial Catalog=GestionDeTickets.Class.GestionContext; Integrated Security=True;");
+                @"Data Source=den1.mssql2.gear.host;Initial Catalog=gestiondetickets;Persist Security Info=True;User ID=gestiondetickets;Password=Ib7W6GLSl-~C");
             try
             {
                 if (sqlConnection.State == ConnectionState.Closed)
