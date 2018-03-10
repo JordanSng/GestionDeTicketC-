@@ -29,10 +29,10 @@
             <Grid>
                 <materialDesign:ColorZone Mode="PrimaryDark" Background="#37474F">
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                        <Button x:Name="Minimize" Width="30" Height="30" Padding="0" Click="Minimize_OnClick" Background="#37474F" BorderBrush="Transparent">
+                        <Button x:Name="Minimize" Width="30" Height="30" Padding="0" Click="Minimize_OnClick" Background="{x:Null}" BorderBrush="{x:Null}">
                             <materialDesign:PackIcon Kind="WindowMinimize"></materialDesign:PackIcon>
                         </Button>
-                        <Button x:Name="Close" Width="30" Height="30" Padding="0" Click="Close_OnClick" Background="#37474F" BorderBrush="Transparent">
+                        <Button x:Name="Close" Width="30" Height="30" Padding="0" Click="Close_OnClick" Background="{x:Null}" BorderBrush="{x:Null}">
                             <materialDesign:PackIcon Kind="WindowClose"></materialDesign:PackIcon>
                         </Button>
                     </StackPanel>

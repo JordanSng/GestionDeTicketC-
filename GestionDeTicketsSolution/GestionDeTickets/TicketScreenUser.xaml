@@ -38,13 +38,13 @@
             <Border Grid.Column="1" Background="Transparent" MouseLeftButtonDown="Border_OnMouseLeftButtonDown">
                 <materialDesign:ColorZone Mode="PrimaryDark" Background="#37474F" Margin="0,0,0.4,0">
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Height="40">
-                        <Button x:Name="Minimize" Width="30" Height="40" Padding="0" Click="Minimize_OnClick" Background="#37474F" BorderBrush="Transparent">
+                        <Button x:Name="Minimize" Width="30" Height="40" Padding="0" Click="Minimize_OnClick" Background="{x:Null}" BorderBrush="{x:Null}">
                             <materialDesign:PackIcon Kind="WindowMinimize"></materialDesign:PackIcon>
                         </Button>
-                        <Button x:Name="Maximize" Width="30" Height="40" Padding="0" Click="Maximize_OnClick" Background="#37474F" BorderBrush="Transparent">
+                        <Button x:Name="Maximize" Width="30" Height="40" Padding="0" Click="Maximize_OnClick" Background="{x:Null}" BorderBrush="{x:Null}">
                             <materialDesign:PackIcon Kind="WindowMaximize"></materialDesign:PackIcon>
                         </Button>
-                        <Button x:Name="Close" Width="30" Height="40" Padding="0" Click="Close_OnClick" Background="#37474F" BorderBrush="Transparent">
+                        <Button x:Name="Close" Width="30" Height="40" Padding="0" Click="Close_OnClick" Background="{x:Null}" BorderBrush="{x:Null}">
                             <materialDesign:PackIcon Kind="WindowClose"></materialDesign:PackIcon>
                         </Button>
                     </StackPanel>
