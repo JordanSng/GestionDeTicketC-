@@ -10,6 +10,7 @@ namespace GestionDeTickets.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
+            AutomaticMigrationDataLossAllowed = true;
         }
 
         protected override void Seed(GestionDeTickets.Class.GestionContext context)

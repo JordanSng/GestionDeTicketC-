@@ -57,7 +57,6 @@
                     <materialDesign:PackIcon Kind="Lock" Width="20" Height="40" HorizontalAlignment="Center"/>
                     <PasswordBox x:Name="Password" Height="40" HorizontalContentAlignment="Center" FontSize="18" materialDesign:HintAssist.Hint="Mot de passe"/>
                 </StackPanel>
-                <CheckBox Content="Se souvenir de moi" Margin="0 10" FontWeight="Light" Width="169"/>
                 <Button Width="200" Height="30" Margin="0 10 0 70" Content="Se connecter" Click="Login_OnClick" Background="#FB8C00" BorderBrush="Transparent"/>
             </StackPanel>            
         </materialDesign:Card>

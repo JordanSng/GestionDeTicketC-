@@ -11,24 +11,12 @@ namespace GestionDeTickets
         public TicketScreenUser()
         {
             InitializeComponent();
+            Main.Content = new PageAccueil();
         }
 
         private void Minimize_OnClick(object sender, RoutedEventArgs e)
         {
             WindowState = WindowState.Minimized; // Minimise la fenetre
-        }
-
-        private void Maximize_OnClick(object sender, RoutedEventArgs e)
-        {
-            //Agrandit ou rétabli la fenetre
-            if (WindowState == WindowState.Normal)
-            {
-                WindowState = WindowState.Maximized;
-            }
-            else
-            {
-                WindowState = WindowState.Normal;
-            }
         }
 
         private void Close_OnClick(object sender, RoutedEventArgs e)
@@ -41,9 +29,23 @@ namespace GestionDeTickets
             DragMove(); //Permet de déplacer la fenetre
         }
 
-        private void Liste_OnSelected(object sender, RoutedEventArgs e)
+        private void ConsulterTickets_OnClick(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Test");
+            var consulterTicket = new ConsulterTicket();//Ouvre une nouvelle page, ici ConsulterTicket
+            consulterTicket.IdUtilisateur.Text = IdUtilisateur.Text;
+            Main.Content = consulterTicket;
+        }
+
+        private void CreerTicket_OnClick(object sender, RoutedEventArgs e)
+        {
+            var creerTicket = new CreerTicket();//Ouvre une nouvelle page, ici CreerTicket
+            creerTicket.IdUtilisateur.Text = IdUtilisateur.Text;
+            Main.Content = creerTicket;
+        }
+
+        private void Bienvenue_OnClick(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new PageAccueil();
         }
     }
 }

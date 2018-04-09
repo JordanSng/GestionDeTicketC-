@@ -58,6 +58,9 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -76,10 +79,35 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Class\Commentaire.cs" />
     <Compile Include="Class\GestionContext.cs" />
     <Compile Include="Class\Technicien.cs" />
     <Compile Include="Class\Personne.cs" />
+    <Page Include="VueCommentaire.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ConsulterTicket.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CreerTicket.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EnregistrerUtilisateur.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ListeDesTickets.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="LoginScreen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageAccueil.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -97,12 +125,50 @@
     </Compile>
     <Compile Include="Class\Ticket.cs" />
     <Compile Include="Class\Utilisateur.cs" />
+    <Compile Include="Migrations\201804091728019_ModifTicket2.cs" />
+    <Compile Include="Migrations\201804091728019_ModifTicket2.Designer.cs">
+      <DependentUpon>201804091728019_ModifTicket2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VueCommentaire.xaml.cs">
+      <DependentUpon>VueCommentaire.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ConsulterTicket.xaml.cs">
+      <DependentUpon>ConsulterTicket.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CreerTicket.xaml.cs">
+      <DependentUpon>CreerTicket.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EnregistrerUtilisateur.xaml.cs">
+      <DependentUpon>EnregistrerUtilisateur.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ListeDesTickets.xaml.cs">
+      <DependentUpon>ListeDesTickets.xaml</DependentUpon>
+    </Compile>
     <Compile Include="LoginScreen.xaml.cs">
       <DependentUpon>LoginScreen.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201803020841360_CreateTicket1.cs" />
-    <Compile Include="Migrations\201803020841360_CreateTicket1.Designer.cs">
-      <DependentUpon>201803020841360_CreateTicket1.cs</DependentUpon>
+    <Compile Include="Migrations\201803161501146_initialisation.cs" />
+    <Compile Include="Migrations\201803161501146_initialisation.Designer.cs">
+      <DependentUpon>201803161501146_initialisation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804051727110_modificationTicket.cs" />
+    <Compile Include="Migrations\201804051727110_modificationTicket.Designer.cs">
+      <DependentUpon>201804051727110_modificationTicket.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804091107285_ModifClasse.cs" />
+    <Compile Include="Migrations\201804091107285_ModifClasse.Designer.cs">
+      <DependentUpon>201804091107285_ModifClasse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804091130272_ModifClassTicket.cs" />
+    <Compile Include="Migrations\201804091130272_ModifClassTicket.Designer.cs">
+      <DependentUpon>201804091130272_ModifClassTicket.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804091536036_AjoutClasseCommentaire.cs" />
+    <Compile Include="Migrations\201804091536036_AjoutClasseCommentaire.Designer.cs">
+      <DependentUpon>201804091536036_AjoutClasseCommentaire.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PageAccueil.xaml.cs">
+      <DependentUpon>PageAccueil.xaml</DependentUpon>
     </Compile>
     <Compile Include="TicketScreenTech.xaml.cs">
       <DependentUpon>TicketScreenTech.xaml</DependentUpon>
@@ -113,14 +179,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201802280816191_CreatePersonne.cs" />
-    <Compile Include="Migrations\201802280816191_CreatePersonne.Designer.cs">
-      <DependentUpon>201802280816191_CreatePersonne.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802280857563_CreateTicket.cs" />
-    <Compile Include="Migrations\201802280857563_CreateTicket.Designer.cs">
-      <DependentUpon>201802280857563_CreateTicket.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -135,14 +193,23 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Migrations\201802280816191_CreatePersonne.resx">
-      <DependentUpon>201802280816191_CreatePersonne.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201803161501146_initialisation.resx">
+      <DependentUpon>201803161501146_initialisation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802280857563_CreateTicket.resx">
-      <DependentUpon>201802280857563_CreateTicket.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201804051727110_modificationTicket.resx">
+      <DependentUpon>201804051727110_modificationTicket.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803020841360_CreateTicket1.resx">
-      <DependentUpon>201803020841360_CreateTicket1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201804091107285_ModifClasse.resx">
+      <DependentUpon>201804091107285_ModifClasse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804091130272_ModifClassTicket.resx">
+      <DependentUpon>201804091130272_ModifClassTicket.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804091536036_AjoutClasseCommentaire.resx">
+      <DependentUpon>201804091536036_AjoutClasseCommentaire.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804091728019_ModifTicket2.resx">
+      <DependentUpon>201804091728019_ModifTicket2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -159,6 +226,7 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\person.png" />

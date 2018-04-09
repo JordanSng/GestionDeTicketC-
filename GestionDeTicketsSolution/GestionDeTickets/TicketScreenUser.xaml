@@ -5,7 +5,6 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Height="600" Width="1000"
-        xmlns:hamburgerMenu="clr-namespace:HamburgerMenu;assembly=HamburgerMenu"
         WindowStartupLocation="CenterScreen"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
@@ -18,7 +17,8 @@
         WindowStyle="None"
         AllowsTransparency="True"
         BorderBrush="#37474F"
-        BorderThickness="1">
+        BorderThickness="1"
+        ResizeMode="NoResize">
      <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="40"></RowDefinition>
@@ -32,17 +32,15 @@
             </Grid.ColumnDefinitions>
 
             <materialDesign:ColorZone Grid.Column="0" Mode="PrimaryDark" Background="#37474F">
-                <Image Source="Assets/appicon.png" HorizontalAlignment="Center" Margin="5"/>
+                <Image Source="Assets/appicon.png" HorizontalAlignment="Center" Margin="5" RenderTransformOrigin="5.667,0.643"/>
             </materialDesign:ColorZone>
 
             <Border Grid.Column="1" Background="Transparent" MouseLeftButtonDown="Border_OnMouseLeftButtonDown">
-                <materialDesign:ColorZone Mode="PrimaryDark" Background="#37474F" Margin="0,0,0.4,0">
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Height="40">
-                        <Button x:Name="Minimize" Width="30" Height="40" Padding="0" Click="Minimize_OnClick" Background="{x:Null}" BorderBrush="{x:Null}">
+                <materialDesign:ColorZone Background="#37474F" Margin="0,0,0.4,0">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Height="40" Margin="0,0,-0.2,0" Width="839">
+                        <TextBlock Text="Gestion de Tickets" Foreground="White" VerticalAlignment="Center" Margin="300 0" />
+                        <Button x:Name="Minimize" Margin="70 0 0 0" Width="30" Height="40" Padding="0" Click="Minimize_OnClick" Background="{x:Null}" BorderBrush="{x:Null}">
                             <materialDesign:PackIcon Kind="WindowMinimize"></materialDesign:PackIcon>
-                        </Button>
-                        <Button x:Name="Maximize" Width="30" Height="40" Padding="0" Click="Maximize_OnClick" Background="{x:Null}" BorderBrush="{x:Null}">
-                            <materialDesign:PackIcon Kind="WindowMaximize"></materialDesign:PackIcon>
                         </Button>
                         <Button x:Name="Close" Width="30" Height="40" Padding="0" Click="Close_OnClick" Background="{x:Null}" BorderBrush="{x:Null}">
                             <materialDesign:PackIcon Kind="WindowClose"></materialDesign:PackIcon>
@@ -52,10 +50,23 @@
             </Border>
         </Grid>
         <Grid Grid.Row="1">
-                <hamburgerMenu:HamburgerMenu Background="#37474F" MenuIconColor="White" SelectionIndicatorColor="White" MenuItemForeground="White" HorizontalAlignment="Left">
-                    <hamburgerMenu:HamburgerMenuItem x:Name="Bienvenue" Icon="Assets/person.png" Text="Bienvenue " Height="50"/>
-                    <hamburgerMenu:HamburgerMenuItem x:Name="Liste" Icon="Assets/list.png" Text="Liste des tickets" Height="50" Selected="Liste_OnSelected"/>
-                </hamburgerMenu:HamburgerMenu>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="250"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <materialDesign:ColorZone  Grid.Column="0" Mode="PrimaryDark" Background="#37474F" Grid.ColumnSpan="2" Height="558" Margin="0,0,748.4,0">
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Id :" Foreground="White" Visibility="Collapsed" FontSize="20" VerticalContentAlignment="Center"></Label>
+                        <TextBlock x:Name="IdUtilisateur" Height="50" Visibility="Collapsed" FontSize="20"></TextBlock>
+                    </StackPanel>
+                    <Button x:Name="Bienvenue" Click="Bienvenue_OnClick" Height="50" Content="Bienvenue " Background="{x:Null}" BorderBrush="{x:Null}"/>
+                    <Button x:Name="CreerTicket" Height="50" Content="Créer un ticket" Background="{x:Null}" BorderBrush="{x:Null}" Click="CreerTicket_OnClick"/>
+                    <Button x:Name="ConsulterTickets" Height="50" Content="Consulter ses tickets" Background="{x:Null}" BorderBrush="{x:Null}" Click="ConsulterTickets_OnClick"/>
+                </StackPanel>
+            </materialDesign:ColorZone>
+            <Frame Grid.Column="1" x:Name="Main" NavigationUIVisibility="Hidden">
+            </Frame>
         </Grid>
     </Grid>
 </Window>

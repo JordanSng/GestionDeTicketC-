@@ -1,4 +1,6 @@
-﻿namespace GestionDeTickets.Class
+﻿using System.Data.Linq.Mapping;
+
+namespace GestionDeTickets.Class
 {
     public class Technicien : Personne
     {

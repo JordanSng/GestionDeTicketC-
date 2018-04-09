@@ -1,0 +1,50 @@
+﻿<Page x:Class="GestionDeTickets.ListeDesTickets"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ListeDesTickets"
+      Loaded="ListeDesTickets_OnLoaded">
+    <Grid Background="White" >
+        <DataGrid Name="DataGrid" AutoGenerateColumns="False" CanUserDeleteRows="False" CanUserAddRows="False" CanUserReorderColumns="False">
+            <DataGrid.Columns>
+                
+                <DataGridTextColumn Header="Personne" Binding="{Binding Personne.Login}" IsReadOnly="True"/>
+            
+                <DataGridTextColumn Header="Titre" Binding="{Binding Titre}" IsReadOnly="True"/>
+            
+                <DataGridTextColumn Header="Categorie" Binding="{Binding Categorie}" IsReadOnly="True"/>
+            
+                <DataGridTextColumn x:Name="Etat" Header="Etat" Binding="{Binding Etat}" IsReadOnly="True"/>
+            
+                <DataGridTextColumn Header="Commentaire" Binding="{Binding Commentaire}" IsReadOnly="True"/>
+            
+                <DataGridTextColumn Header="Date de Création" Binding="{Binding DateCreation}" IsReadOnly="True"/>
+            
+                <DataGridTextColumn Header="Date de Fin" Binding="{Binding DateFin}" IsReadOnly="True"/>
+                
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Voir les Commentaires" x:Name="btnCom"
+                                    Click="BtnCom_OnClick"></Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Cloturer le ticket" x:Name="btnEtat"
+                            Click="BtnEtat_OnClick"></Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            
+            </DataGrid.Columns>
+            
+        </DataGrid>
+    </Grid>
+</Page>

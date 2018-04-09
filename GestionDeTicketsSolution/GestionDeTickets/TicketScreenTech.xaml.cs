@@ -11,23 +11,12 @@ namespace GestionDeTickets
         public TicketScreenTech()
         {
             InitializeComponent();
+            Main.Content = new PageAccueil();
         }
 
         private void Minimize_OnClick(object sender, RoutedEventArgs e)
         {
             WindowState = WindowState.Minimized;
-        }
-
-        private void Maximize_OnClick(object sender, RoutedEventArgs e)
-        {
-            if (WindowState == WindowState.Normal)
-            {
-                WindowState = WindowState.Maximized;
-            }
-            else
-            {
-                WindowState = WindowState.Normal;
-            }
         }
 
         private void Close_OnClick(object sender, RoutedEventArgs e)
@@ -40,9 +29,19 @@ namespace GestionDeTickets
             DragMove();
         }
 
-        private void Liste_OnSelected(object sender, RoutedEventArgs e)
+        private void EnregistrerUtilisateur_OnClick(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("test");
+            Main.Content = new EnregistrerUtilisateur();
+        }
+
+        private void ListeTickets_OnClick(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new ListeDesTickets();
+        }
+
+        private void Bienvenue_OnClick(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new PageAccueil();
         }
     }
 }

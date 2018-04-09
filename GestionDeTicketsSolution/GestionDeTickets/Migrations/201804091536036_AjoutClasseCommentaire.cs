@@ -1,22 +1,21 @@
 namespace GestionDeTickets.Migrations
 {
+    using System;
     using System.Data.Entity.Migrations;
     
-    public partial class CreatePersonne : DbMigration
+    public partial class AjoutClasseCommentaire : DbMigration
     {
         public override void Up()
         {
             CreateTable(
-                "dbo.Personnes",
+                "dbo.Commentaires",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        Login = c.String(),
-                        Password = c.String(),
-                        Email = c.String(),
-                        Niveau = c.Int(),
-                        Vip = c.Boolean(),
-                        Discriminator = c.String(nullable: false, maxLength: 128),
+                        PersonneId = c.Int(nullable: false),
+                        TicketId = c.Int(nullable: false),
+                        Commentaires = c.String(),
+                        DatePublication = c.DateTime(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -24,7 +23,7 @@ namespace GestionDeTickets.Migrations
         
         public override void Down()
         {
-            DropTable("dbo.Personnes");
+            DropTable("dbo.Commentaires");
         }
     }
 }

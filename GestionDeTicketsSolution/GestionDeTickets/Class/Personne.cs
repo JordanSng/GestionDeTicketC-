@@ -1,4 +1,7 @@
-﻿namespace GestionDeTickets.Class
+﻿using System.Collections.Generic;
+using System.Data.Entity;
+
+namespace GestionDeTickets.Class
 {
     public abstract class Personne
     {
@@ -7,6 +10,7 @@
         public string Password { get; set; }
         public string Email { get; set; }
 
+        public ICollection<Ticket> Tickets { get; set; }
     }
 
 }

@@ -7,13 +7,13 @@ namespace GestionDeTickets.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class CreateTicket : IMigrationMetadata
+    public sealed partial class AjoutClasseCommentaire : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(CreateTicket));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AjoutClasseCommentaire));
         
         string IMigrationMetadata.Id
         {
-            get { return "201802280857563_CreateTicket"; }
+            get { return "201804091536036_AjoutClasseCommentaire"; }
         }
         
         string IMigrationMetadata.Source
