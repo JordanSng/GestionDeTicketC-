@@ -20,25 +20,6 @@ namespace GestionDeTickets
 
         private void Login_OnClick(object sender, RoutedEventArgs e)
         {
-            /*GestionContext _dbContext = new GestionContext();
-
-            var utilisateur = from p in _dbContext.Personnes
-                where p.Login == Username.Text && p.Password == Password.Password
-                select p;
-
-            if (utilisateur.Any())
-            {
-                var ticketScreenTech = new TicketScreenTech();
-                ticketScreenTech.Bienvenue.Content += utili;
-                ticketScreenTech.Show();
-                Close();
-            }
-            else
-            {
-
-                return false;
-
-            }*/
 
             var sqlConnection = new SqlConnection(
                 @"Data Source=den1.mssql2.gear.host;Initial Catalog=gestiondetickets;Persist Security Info=True;User ID=gestiondetickets;Password=Ib7W6GLSl-~C");
