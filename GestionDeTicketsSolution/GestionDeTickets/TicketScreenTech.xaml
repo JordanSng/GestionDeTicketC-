@@ -57,13 +57,28 @@
             </Grid.ColumnDefinitions>
             <materialDesign:ColorZone  Grid.Column="0" Mode="PrimaryDark" Background="#37474F" Grid.ColumnSpan="2" Height="558" Margin="0,0,748.4,0">
                 <StackPanel>
-                    <Button x:Name="Bienvenue" Click="Bienvenue_OnClick" Height="50" Content="Bienvenue " Background="{x:Null}" BorderBrush="{x:Null}"/>
-                    <Button x:Name="ListeTickets" Height="50" Click="ListeTickets_OnClick" Content="Liste des tickets" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                    <Button x:Name="EnregistrerUtilisateur" Click="EnregistrerUtilisateur_OnClick" Height="50" Content="Enregistrer Utilisateur" Background="{x:Null}" BorderBrush="{x:Null}"/>
+                    <Button BorderThickness="1" x:Name="Bienvenue" Click="Bienvenue_OnClick" Height="50" Content="Bienvenue " Background="{x:Null}" BorderBrush="White"/>
+                    <Button BorderThickness="1" x:Name="ListeTickets" Height="50" Click="ListeTickets_OnClick" Content="Liste des tickets" Background="{x:Null}" BorderBrush="White"/>
+                    <Button BorderThickness="1" x:Name="EnregistrerUtilisateur" Click="EnregistrerUtilisateur_OnClick" Height="50" Content="Enregistrer Utilisateur" Background="{x:Null}" BorderBrush="White"/>
                 </StackPanel>
             </materialDesign:ColorZone>
-            <Frame Grid.Column="1" x:Name="Main" NavigationUIVisibility="Hidden">
-            </Frame>
+            <Grid  Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition  Height="*"></RowDefinition>
+                    <RowDefinition Height="30"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Frame Grid.Row="0" x:Name="Main" NavigationUIVisibility="Hidden">
+                </Frame>
+                <Border Grid.Row="1" Height="30" Background="#37474F" BorderBrush="{x:Null}">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                        <Label Content="Ouvert :" FontWeight="DemiBold" Foreground="White" VerticalContentAlignment="Center"/>
+                        <Button Loaded="Ouvert_OnLoaded" x:Name="Ouvert" Width="50" Background="#FFD600"></Button>
+                        <Label Content="Cloturé :" Margin="10 0 0 0" FontWeight="DemiBold" Foreground="White" VerticalContentAlignment="Center"/>
+                        <Button Loaded="Cloturer_OnLoaded" x:Name="Cloturer" Width="50" Background="#01579B"></Button>
+                    </StackPanel>
+                </Border>
+            </Grid>
+
         </Grid>
     </Grid>
 </Window>
