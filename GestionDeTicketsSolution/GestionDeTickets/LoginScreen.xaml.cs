@@ -30,6 +30,7 @@ namespace GestionDeTickets
                 @"Data Source=den1.mssql2.gear.host;Initial Catalog=gestiondetickets;Persist Security Info=True;User ID=gestiondetickets;Password=Ib7W6GLSl-~C");
             try
             {
+
                 if (sqlConnection.State == ConnectionState.Closed)
                     sqlConnection.Open();
                 var query = "SELECT * FROM Personnes WHERE Login=@Username and Password=@Password";// Les @ protège d'une injection SQL
