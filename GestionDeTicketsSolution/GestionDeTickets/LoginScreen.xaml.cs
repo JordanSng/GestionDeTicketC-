@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
 using System.Windows;
 using System.Windows.Input;
-using GestionDeTickets.Class;
 
 namespace GestionDeTickets
 {
@@ -18,6 +16,13 @@ namespace GestionDeTickets
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Initialise la connexion à la BDD (Possibilité d'améliorer la connexion en masquant le mot de passe)
+        /// Execute une requete SQL récupérant la personne ayant pour login et le mot de passe entrés dans les textbox et passwordbox
+        /// Montre la vue technicien ou utilisateur en fonction du Discriminator de la personne
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Login_OnClick(object sender, RoutedEventArgs e)
         {
 

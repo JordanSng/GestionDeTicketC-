@@ -16,6 +16,16 @@ namespace GestionDeTickets
 
         private  GestionContext _dbContext = new GestionContext();
 
+        /// <summary>
+        /// Créer un ticket au clic du bouton CreerUnTicket
+        /// _dbContext.Tickets.Add() ajoute l'instance ticket dans la table Tickets
+        /// On confirme l'ajout avec _dbContext.SaveChanges()
+        /// Pareil pour commentaire dans la table Commentaires
+        ///  var page = new PageAccueil(); et NavigationService.Navigate(page); change la page dans la Frame
+        ///
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CreerUnTicket_OnClick(object sender, RoutedEventArgs e)
         {
             try

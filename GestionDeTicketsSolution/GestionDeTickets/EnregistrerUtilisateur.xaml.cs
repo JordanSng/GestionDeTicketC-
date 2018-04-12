@@ -17,6 +17,14 @@ namespace GestionDeTickets
 
         private readonly GestionContext _dbContext = new GestionContext();
 
+        /// <summary>
+        /// Enregistre l'utilisateur au clic du bouton SaveUtilisateur
+        /// Ajout d'une regex pour définir les caracteristiques des données entrés dans la formulaire
+        /// si ne remplis pas les conditions
+        /// l'utilisateur n'est pas crée
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SaveUtilisateur_OnClick(object sender, RoutedEventArgs e)
         {
             try

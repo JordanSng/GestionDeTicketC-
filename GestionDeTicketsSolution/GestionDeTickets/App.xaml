@@ -4,6 +4,7 @@
              xmlns:local="clr-namespace:GestionDeTickets"
              StartupUri="LoginScreen.xaml">
     <Application.Resources>
+        <!--Ressources utilisés par l'appli-->
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />

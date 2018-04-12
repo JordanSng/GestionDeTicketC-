@@ -18,6 +18,12 @@ namespace GestionDeTickets
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Charge tous les tickets aux chargement de la page
+        /// Requete LINQ avec jointure effectué pour récupérer la liste des tickets et leurs créateurs
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ListeDesTickets_OnLoaded(object sender, RoutedEventArgs e)
         {
             _dbContext.Personnes.Join(_dbContext.Tickets,
@@ -27,11 +33,14 @@ namespace GestionDeTickets
                     (personneEtTicket => personneEtTicket.Ticket.PersonneId == personneEtTicket.Personne.Id)
                 .Load();
 
-            DataContext = _dbContext.Tickets.Local;
-
             DataGrid.ItemsSource = _dbContext.Tickets.Local;
         }
 
+        /// <summary>
+        /// Similaire à la fonction BtnEtat_OnClick de ConsulterTicket
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnEtat_OnClick(object sender, RoutedEventArgs e)
         {
             try
@@ -61,6 +70,11 @@ namespace GestionDeTickets
             }
         }
 
+        /// <summary>
+        /// Similaire a la fonction du meme nom présent dans ConsulterTicket
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnCom_OnClick(object sender, RoutedEventArgs e)
         {
             Ticket ticketRow = DataGrid.SelectedItem as Ticket;

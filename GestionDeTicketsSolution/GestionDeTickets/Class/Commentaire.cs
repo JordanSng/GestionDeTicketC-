@@ -2,6 +2,9 @@
 
 namespace GestionDeTickets.Class
 {
+    /// <summary>
+    /// Classe permettant la gestion des commentaires
+    /// </summary>
     public class Commentaire
     {
         public int Id { get; set; }

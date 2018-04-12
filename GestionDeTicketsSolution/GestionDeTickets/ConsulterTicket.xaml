@@ -10,6 +10,7 @@
 
     <Grid Background="White">
         <TextBlock x:Name="IdUtilisateur" Visibility="Collapsed"></TextBlock>
+        <!-- DataGrid permet la création d'un tableau à partir de binding de données, ici les données sont stockes dans ItemsSource -->
         <DataGrid Name="DataGrid" AutoGenerateColumns="False" CanUserDeleteRows="False" CanUserAddRows="False" CanUserReorderColumns="False">
             <DataGrid.Columns>
 

@@ -1,8 +1,11 @@
 namespace GestionDeTickets.Migrations
 {
-    using System;
     using System.Data.Entity.Migrations;
-    
+
+    /// <summary>
+    /// Dans le dossier Migrations, il y a l'historique des scripts utilisés pour mettre à jour la BDD
+    /// Hérite de DbMigration afin de migrer les classes et leurs attributs dans leurs tables respectives
+    /// </summary>
     public partial class initialisation : DbMigration
     {
         public override void Up()

@@ -18,7 +18,13 @@ namespace GestionDeTickets
 
         GestionContext _dbContext = new GestionContext();
 
-
+        /// <summary>
+        /// Requete LINQ effectué au chargement, récupère les données de la requete
+        /// Et les attribue aux ItemsSource du DataContext de la fenetre concerné
+        /// Fonction à améliorer, le commentaire ne mentionne pas la personne qui l'a crée
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void VueCommentaire_OnLoaded(object sender, RoutedEventArgs e)
         {
             var idTicket = int.Parse(IdTicket.Text);
@@ -32,16 +38,6 @@ namespace GestionDeTickets
                     (co, pe) => new {Commentaires = co, Personnes = pe}).Where
                     (commentaireEtTicketEtPersonne => commentaireEtTicketEtPersonne.Commentaires.Ticket.Id == idTicket)
                     .Load();
-
-            /*var idPersonne = int.Parse(IdPersonne.Text);
-            _dbContext.Commentaires.Join(_dbContext.Personnes,
-                    c => c.PersonneId,
-                    p => p.Id,
-                    (c, p) => new { Commentaire = c, Personne = p }).Where
-                    (commentaireEtPersonne => commentaireEtPersonne.Commentaire.TicketId == idPersonne)
-                .Load();*/
-
-            DataContext = _dbContext.Commentaires.Local;
 
             DataGrid.ItemsSource = _dbContext.Commentaires.Local;
         }

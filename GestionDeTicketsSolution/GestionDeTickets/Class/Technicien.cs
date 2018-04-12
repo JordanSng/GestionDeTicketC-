@@ -1,7 +1,9 @@
-﻿using System.Data.Linq.Mapping;
-
-namespace GestionDeTickets.Class
+﻿namespace GestionDeTickets.Class
 {
+    /// <summary>
+    /// Classe Technicien héritant de la classe Personne
+    /// Intègre l'attribut Niveau
+    /// </summary>
     public class Technicien : Personne
     {
         public int Niveau { get; set; }

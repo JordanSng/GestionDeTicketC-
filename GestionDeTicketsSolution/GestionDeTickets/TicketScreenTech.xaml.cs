@@ -1,7 +1,5 @@
-﻿using System.Data.Entity;
-using System.Linq;
+﻿using System.Linq;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Input;
 using GestionDeTickets.Class;
 
@@ -51,15 +49,23 @@ namespace GestionDeTickets
         }
 
 
+        /// <summary>
+        /// Fonction à completer
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Ouvert_OnLoaded(object sender, RoutedEventArgs e)
         {
             var ticketCount = _dbContext.Tickets.Count(t => t.Etat == "En Cours" || t.Etat == "Réouvert");
 
-            DataContext = _dbContext.Tickets.Local;
-
             Ouvert.Content = ticketCount.ToString();
         }
 
+        /// <summary>
+        /// Fonction à completer
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Cloturer_OnLoaded(object sender, RoutedEventArgs e)
         {
             var ticketCount = _dbContext.Tickets.Count(t => t.Etat == "Cloturé");

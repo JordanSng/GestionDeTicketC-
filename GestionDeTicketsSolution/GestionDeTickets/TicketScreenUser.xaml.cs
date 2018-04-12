@@ -31,14 +31,14 @@ namespace GestionDeTickets
 
         private void ConsulterTickets_OnClick(object sender, RoutedEventArgs e)
         {
-            var consulterTicket = new ConsulterTicket();//Ouvre une nouvelle page, ici ConsulterTicket
+            var consulterTicket = new ConsulterTicket();//Ouvre une nouvelle page, ici CreerTicket dans la frame concerné
             consulterTicket.IdUtilisateur.Text = IdUtilisateur.Text;
             Main.Content = consulterTicket;
         }
 
         private void CreerTicket_OnClick(object sender, RoutedEventArgs e)
         {
-            var creerTicket = new CreerTicket();//Ouvre une nouvelle page, ici CreerTicket
+            var creerTicket = new CreerTicket();
             creerTicket.IdUtilisateur.Text = IdUtilisateur.Text;
             Main.Content = creerTicket;
         }

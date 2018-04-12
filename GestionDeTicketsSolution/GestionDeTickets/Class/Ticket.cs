@@ -2,6 +2,9 @@
 
 namespace GestionDeTickets.Class
 {
+    /// <summary>
+    /// Classe Ticket et ses attributs
+    /// </summary>
     public class Ticket
     {
         public int Id { get; set; }
@@ -10,8 +13,11 @@ namespace GestionDeTickets.Class
         public string Etat { get; set; }
         public DateTime DateCreation { get; set; }
         public DateTime? DateFin { get; set; }
-
-        //Ajoute la clé étrangère lors de l'ajout de migration
+       
+        /// <summary>
+        /// Ajoute la clé étrangère PersonneId lors de la création de la table via le DbSet
+        /// Afin de lier la table Ticekts a la table Personne
+        /// </summary>
         public int PersonneId { get; set; } 
         public Personne Personne { get; set; }
     }
