@@ -8,7 +8,7 @@ namespace GestionDeTickets.Class
         /// Permet d'établir la connexion a la BDD, Data Source est le serveur concerné et initial catalog est la bdd concerné
         /// </summary>
         public GestionContext()
-            :base("Data Source=den1.mssql2.gear.host;Initial Catalog=gestiondetickets;Persist Security Info=True;User ID=gestiondetickets;Password=Ib7W6GLSl-~C")
+            :base("GestionLocal")
         {} 
 
         /// <summary>

@@ -60,9 +60,9 @@
                         <Label Content="Id :" Foreground="White" Visibility="Collapsed" FontSize="20" VerticalContentAlignment="Center"></Label>
                         <TextBlock x:Name="IdUtilisateur" Height="50" Visibility="Collapsed" FontSize="20"></TextBlock>
                     </StackPanel>
-                    <Button x:Name="Bienvenue" Click="Bienvenue_OnClick" Height="50" Content="Bienvenue " Background="{x:Null}" BorderBrush="{x:Null}"/>
-                    <Button x:Name="CreerTicket" Height="50" Content="Créer un ticket" Background="{x:Null}" BorderBrush="{x:Null}" Click="CreerTicket_OnClick"/>
-                    <Button x:Name="ConsulterTickets" Height="50" Content="Consulter ses tickets" Background="{x:Null}" BorderBrush="{x:Null}" Click="ConsulterTickets_OnClick"/>
+                    <Button x:Name="Bienvenue" Click="Bienvenue_OnClick" Height="50" Content="Bienvenue " Background="{x:Null}" BorderThickness="1" BorderBrush="White"/>
+                    <Button x:Name="CreerTicket" Height="50" Content="Créer un ticket" Background="{x:Null}" BorderThickness="1" BorderBrush="White" Click="CreerTicket_OnClick"/>
+                    <Button x:Name="ConsulterTickets" Height="50" Content="Consulter ses tickets" Background="{x:Null}" BorderThickness="1" BorderBrush="White" Click="ConsulterTickets_OnClick"/>
                 </StackPanel>
             </materialDesign:ColorZone>
             <Frame Grid.Column="1" x:Name="Main" NavigationUIVisibility="Hidden">
